@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Help</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #EAEDEE;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px; /* increased top padding */
+      transition: background-color 0.3s ease, background-image 0.3s ease;
+    }
+    
+        .headertype {
+      text-align: center;
+      color: #419DEB;
+      font-size: 34px;
+    }
+    
+    /* === THEME COLORS === */
+    .theme-dark {
+      background-color: #22232B;
+      color: #1966b0;
+    }
+
+    .theme-dark .top-nav,
+    .theme-dark .main,
+    .theme-dark .sidebar {
+      background-color: #3D3E43;
+      color: #419DEB;
+      border-color: #1966b0;
+    }
+
+    .theme-dark a {
+      color: #419DEB;
+    }
+
+    .theme-dark .nav-itemb {
+      background-color: #3D3E43;
+      border-color: #1966b0;
+    }
+
+    .theme-dark .headertype {
+  color: #1966b0;
+}
+
+.theme-red {
+  background-color: #610001;
+  background-image: url("https://files.catbox.moe/rod3hy.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #600508;
+}
+.theme-red .top-nav,
+.theme-red .main,
+.theme-red .sidebar {
+  background-color: #f49c86;
+  border-color: #600508;
+  color: #600508;
+}
+.theme-red a {
+      color: #600508;
+    }
+
+    .theme-red .nav-itemb {
+      background-color: #f49c86;
+      border-color: #600508;
+    }
+    .theme-red .headertype {
+  color: #600508;
+}
+
+
+
+.theme-orange {
+  background-color: #e3821b;
+  background-image: url("https://files.catbox.moe/i6i5cq.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #bb580c;
+}
+.theme-orange .top-nav,
+.theme-orange .main,
+.theme-orange .sidebar {
+  background-color: #ffac53;
+  border-color: #bb580c;
+  color: #bb580c;
+}
+.theme-orange a {
+      color: #bb580c;
+    }
+
+    .theme-orange .nav-itemb  {
+      background-color: #ffac53;
+      border-color: #bb580c;
+    }
+    .theme-orange .headertype {
+  color: #ffac53;
+}
+
+
+
+.theme-green {
+  background-color: #54541e;
+  background-image: url("https://files.catbox.moe/g63sta.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #54541e;
+}
+.theme-green .top-nav,
+.theme-green .main,
+.theme-green .sidebar {
+  background-color: #BFB760;
+  border-color: #54541e;
+  color: #54541e;
+}
+.theme-green a {
+      color: #54541e;
+    }
+
+    .theme-green .nav-itemb {
+      background-color: #BFB760;
+      border-color: #54541e;
+    }
+    .theme-green .headertype {
+  color: #96962f;
+}
+
+
+.theme-blue {
+  background-color: #3783dd;
+  background-image: url("https://files.catbox.moe/2kq1gi.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #A9b6d2;
+}
+.theme-blue .top-nav,
+.theme-blue .main,
+.theme-blue .sidebar {
+  background-color: #5F7BA7;
+  border-color: #222d40;
+  color: #A9b6d2;
+}
+.theme-blue a {
+      color: #a9b6d2;
+    }
+
+    .theme-blue .nav-itemb  {
+      background-color: #5F7BA7;
+      border-color: #222d40;
+    }
+    .theme-blue .headertype {
+  color: #222d40;
+}
+
+
+.theme-pink {
+  background-color: #ffc0b6;
+  background-image: url("https://files.catbox.moe/vq5igr.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #FF8484;
+}
+.theme-pink .top-nav,
+.theme-pink .main,
+.theme-pink .sidebar {
+  background-color: #ffdcd8;
+  border-color: #FF8484;
+  color: #FF8484;
+}
+.theme-pink a {
+      color: #FF8484;
+    }
+
+    .theme-pink .nav-itemb  {
+      background-color: #ffdcd8;
+      border-color: #FF8484;
+    }
+    .theme-pink .headertype {
+  color: #CB6168;
+}
+
+.theme-brown {
+  background-color: #a56a48;
+  background-image: url("https://files.catbox.moe/n53en7.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #804929;
+}
+.theme-brown .top-nav,
+.theme-brown .main,
+.theme-brown .sidebar {
+  background-color: #C88C60;
+  border-color: #804929;
+  color: #804929;
+}
+.theme-brown a {
+      color: #804929;
+    }
+
+    .theme-brown .nav-itemb  {
+      background-color: #C88C60;
+      border-color: #804929;
+    }
+    .theme-brown .headertype {
+  color: #FEB27C;
+}
+
+    .toggle-theme {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      padding: 8px 14px;
+      background-color: #1966b0;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    
+    /* === main css === */
+    .top-nav {
+      display: flex;
+      overflow-x: auto;
+      background-color: #D5DADC;
+      border-bottom: 3px solid #1966b0;
+      border-top: 3px solid #1966b0;
+      width: 100vw; /* full screen width */
+      white-space: nowrap;
+      padding: 10px;
+      gap: 10px;
+      color: #419DEB;
+      scrollbar-width: thin;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    .nav-itemb {
+      flex: 0 0 auto;
+      padding: 0px 15px;
+      border: 2px solid #1966b0;
+      border-radius: 5px;
+      background-color: #D5DADC;
+      transition: background-color 0.3s;
+      cursor: pointer;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 20px;
+    }
+
+    .nav-itemb:hover {
+      background-color: #c8d5dd;
+    }
+    
+    .nav-itemb a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0 10px;
+  height: 100%;
+  line-height: normal;
+    }
+
+    .content-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 90%;
+      height: 65vh; /* smaller height */
+      gap: 20px;
+    }
+
+    .main {
+      flex-grow: 1;
+      overflow-y: auto;
+      background-color: #D5DADC;
+      border: 3px solid #1966b0;
+      padding: 20px;
+      color: #1966b0;
+      max-height: 100%;
+      text-align: center;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 100%;
+      overflow-y: auto;
+      background-color: #D5DADC;
+      border: 3px solid #1966b0;
+      padding: 10px;
+      text-align: center;
+      color: #1966b0;
+    }
+
+    h1, h2, h3 {
+      margin-bottom: 15px;
+    }
+
+    p, li, a {
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+
+  </style>
+</head>
+<body>
+	<!--theme html-->
+  <select class="toggle-theme" onchange="changeTheme(this.value)">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+    <option value="red">Red</option>
+    <option value="orange">Orange</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+    <option value="pink">Pink</option>
+    <option value="brown">Brown</option>
+  </select>
+  
+  
+  <div class="headertype">
+  <h1>The Uquiz Community Archive</h1>
+  </div>
+
+
+
+
+
+
+  <!-- Top horizontal navbar -->
+  <div class="top-nav">
+    <div class="nav-itemb"><a href="index.html">home</a></div>
+    <div class="nav-itemb"><a href="uquizhistory.html">history</a></div>
+    <div class="nav-itemb"><a href="uquizpeople.html">people</a></div>
+    <div class="nav-itemb"><a href="uquizlinks.html">links</a></div>
+    <div class="nav-itemb"><a href="uquizwhiteboard.html">whiteboards</a></div>
+    <div class="nav-itemb"><a href="uquizupdates.html">updates</a></div>
+    <div class="nav-itemb"><a href="uquizevents.html">events</a></div>
+    <div class="nav-itemb"><a href="uquizelections.html">election status</a></div>
+    <div class="nav-itemb"><a href="uquizdailynews.html">channel 7 news</a></div>
+    <div class="nav-itemb"><a href="uquizseries.html">series</a></div>
+    <div class="nav-itemb"><a href="uquizedits.html">edit site</a></div>
+    <div class="nav-itemb"><a href="uquizhelp.html">help</a></div>
+    <div class="nav-itemb"><a href="uquizoffice.html">office</a></div>
+    <div class="nav-itemb"><a href="love.html"><3</a></div>
+
+  </div>
+
+  <!-- Main content Type shit-->
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <div class="main" id="main-content">
+      <h1>What do you need help with?</h1>
+      <p>i got your back bbg</p><br>
+      <p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+      <h3>Quick Care</h3>
+      <a href="https://philome.la/jace_harr/you-feel-like-shit-an-interactive-self-care-guide/play/index.html"><em>I need help with self care</em></a>
+      <a href="https://thenicestplace.net/"><em>I need a hug</em></a>
+      <a href="https://soundcloud.com/smaugti/brown-noise-1-hour?si=07a0dd6dc5bd4f2296a0d2b7c4c760e0&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"><em>I need help sleeping</em></a>
+      <a href="https://uquiz.com/quiz/fpxpm8/vent-to-me"><em>I need to vent</em></a>
+      <a href="https://zenmix.io/breathing-timer/"><em>I need help breathing</em></a>
+      <a href="https://www.somethingforkelly.org/Crisis_Support?gad_source=5&gad_campaignid=22536458539&gclid=EAIaIQobChMInMzHmO-8jQMV8nF_AB3VuR7qEAAYASAAEgK2IvD_BwE"><em>I need a hotline</em></a>
+      <p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+      <h3>Site Faq</h3><br>
+      <details>
+        <summary>Why the hell does this exist</summary>
+        <p>We are sentimental freaks over at Uquiz. We want to keep our community alive and nurtured, and it also helps to have all of our things in one place :]</p>
+       </details><br>
+       <details>
+        <summary>Who are these people?</summary>
+        <p>The population of uquiz...!! we are all really cool trust. Learn more about us in the people and history tabs!</p>
+      </details><br>
+      <details>
+        <summary>Where can I submit a site change?</summary>
+        <p>Head on over to the "edit site" tab and submit your change! if accurate and suitable, it will be applied to the site shortly.</p>
+    </details><br>
+    <details>
+       <summary>What is Uquiz?</summary>
+       <p>Its a personality quiz website!! check it out :3</p>
+    </details><br>
+      <details>
+        <summary>Can I join this group?</summary>
+        <p>OF COURSE! its easy to begin. Head over to the series tab and pick one that looks interesting. click on the title of your chosen series, and it will take you right to the start of one of them. Most of those series post daily and theyre our main source of interaction between each other. Its something of a parasocial relationship but we also have Out-Of-Uquiz exchanges too! (especially in the form of discord, watch parties, and whiteboards!!) we would love to have you.</p>
+      </details><br>
+      <details>
+        <summary>Whats up with the uquiz elections??</summary>
+        <p>they began around May, i believe! Every month we vote for a new president. Presidents dont do anything special, they just have the ability to create laws. Check out the elections tab for current progress and the history tab for past elections!</p>
+      </details><br>
+      <details>
+        <summary>What is the office password?</summary>
+        <p>The office is a room specifically for the quiz makers of uquiz. Its for the exchange of ideas and overall discussion plus some other content. Its locked because Paris (number one Uquiz enemy) would probably spam it if she knew the password. feel free to ask for the password on one of the lacemoss quizzes (and provide a way to contact you so we can give you the password) and we'll get back to you as soon as we can :D</p>
+      </details><br>
+      <details>
+      	<summary>Why do you have a history page AND an updates page if they are pretty much the same thing??</summary>
+      	<p>The updates page is not only for changes made to the site, but its basically the TLDR of the Histroy page :3</p>
+      </details>
+      
+      
+    
+
+    </div>
+
+    <!-- Right sidebar -->
+  </div>
+
+  <!--random javascript (no clue how this works)-->
+  <script>
+    const themes = ['light', 'dark', 'red', 'orange', 'green', 'blue', 'pink', 'brown'];
+  
+    function changeTheme(theme) {
+      const body = document.body;
+  
+      // Remove all theme classes
+      themes.forEach(t => body.classList.remove(`theme-${t}`));
+  
+      // Add selected theme class
+      body.classList.add(`theme-${theme}`);
+  
+      // Save theme
+      localStorage.setItem('theme', theme);
+    }
+  
+    // Apply saved theme on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.classList.add(`theme-${savedTheme}`);
+  
+      // Set dropdown to saved theme
+      const select = document.querySelector('.toggle-theme');
+      if (select) select.value = savedTheme;
+    });
+    
+    
+    
+  </script>
+
+</body>
